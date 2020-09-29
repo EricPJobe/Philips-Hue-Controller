@@ -1,8 +1,8 @@
 #include <SPI.h>
 #include <WiFiNINA.h>
 
-char ssid[] = "Ur-Nammu";
-char pass[] = "nitahkalaga";
+char ssid[] = "";
+char pass[] = "";
 int keyIndex = 0;
 
 int status = WL_IDLE_STATUS;
@@ -70,7 +70,7 @@ void toggleLight(String status, String light) {
     String command = "{\"on\": " + status + "}";
     Serial.println("connected to server");
     Serial.print("PUT /api/");
-    Serial.print("D2IGxppV8oFulkxiuJgEiFaqNp3tQGBu2VxVOogg");
+    Serial.print("<username>");
     Serial.print("/lights/");
     Serial.print(light);
     Serial.println("/state HTTP/1.1");
@@ -84,7 +84,7 @@ void toggleLight(String status, String light) {
     Serial.println(command);
     
     client.print("PUT /api/");
-    client.print("D2IGxppV8oFulkxiuJgEiFaqNp3tQGBu2VxVOogg");
+    client.print("<username>");
     client.print("/light/");
     client.print(light);
     client.println("/state HTTP/1.1");
